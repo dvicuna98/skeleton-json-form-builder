@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    working_dir: /usr/src/myapp
+    container_name: skeleton-json-form-builder-dev
+    restart: unless-stopped
+
+    volumes:
+      - ./:/usr/src/myapp
+      
+    stdin_open: true
+    tty: true
+    ports:
+      - "${SERVER_PORT}:8080"
+    networks:
+      - skeleton-json-form-builder-net
+
+networks:
+  skeleton-json-form-builder-net:
+    external:
+      name: diego-with-vpn

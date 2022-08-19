@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  my-app-prod:
+    container_name: skeleton-json-form-builder-prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '${SERVER_PORT}:80'
+    networks:
+      - front-net
+
+networks:
+  front-net:
+    external:
+      name: diego-with-vpn

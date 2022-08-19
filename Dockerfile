@@ -2,7 +2,9 @@ FROM node:17-alpine3.15 as builder
 
 WORKDIR /usr/src/app
 
-COPY . /usr/src/app
+COPY . .
+
+COPY .env.production .env
 
 RUN npm install
 

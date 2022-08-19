@@ -3,7 +3,7 @@
         class="form"
     >
 
-      <div class="form-title">Lorem Ipsum</div>
+      <div class="form-title">{{title}}</div>
 
       <v-form
         ref="form"
@@ -296,6 +296,8 @@ export default {
   },
   data() {
     return {
+      title:process.env.VUE_APP_TITLE_EXAMPLE,
+
       form:{
         name:{
           type: 'string',
